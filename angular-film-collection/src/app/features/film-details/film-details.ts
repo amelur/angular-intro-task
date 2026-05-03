@@ -1,11 +1,13 @@
 import {Component, inject} from '@angular/core';
 import {ActivatedRoute, RouterLink} from "@angular/router";
 import {FilmService} from "../../services/film";
+import { DurationPipe } from '../../shared/duration-pipe';
+
 
 
 @Component({
   selector: 'app-film-details',
-  imports: [ RouterLink ],
+  imports: [ RouterLink, DurationPipe ],
   templateUrl: './film-details.html',
   styleUrl: './film-details.css',
 })

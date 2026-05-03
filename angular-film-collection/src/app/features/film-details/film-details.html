@@ -1,7 +1,10 @@
-<h2>{{ film?.title }}</h2>
-<p>{{ film?.year }}</p>
-<p>{{ film?.genre }}</p>
-<p>{{ film?.rating }}</p>
-<p>{{ film?.description }}</p>
+@if (film) {
+    <h2>{{ film.title }}</h2>
+    <p>{{ film.year }}</p>
+    <p>{{ film.genre }}</p>
+    <p>{{ film.rating }}</p>
+    <p>{{ film.duration | duration }}</p>
+    <p>{{ film.description }}</p>
 
-<button routerLink="/">Back</button>
+    <button routerLink="/">Back</button>
+}
