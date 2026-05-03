@@ -4,6 +4,7 @@
         type="text"
         placeholder="Search films..."
         (input)="filmService.search.set($any($event.target).value)"
+        appAutofocus
 />
 @if (filmService.filteredFilms().length === 0) {
     <p>Nothing found</p>
