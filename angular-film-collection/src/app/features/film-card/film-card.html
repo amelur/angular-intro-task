@@ -1,0 +1,14 @@
+<div>
+    <h3>{{ film().title }}</h3>
+    <p>{{ film().year }}</p>
+    <p>{{ film().genre }}</p>
+    <p>{{ film().rating }}</p>
+
+    <button (click)="toggle.emit(film().id)">
+        @if (film().isFavorite) {
+            Remove from favorite
+        } @else {
+            Add to favorite
+        }
+    </button>
+</div>

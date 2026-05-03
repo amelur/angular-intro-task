@@ -1,9 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { FilmService } from '../../services/film';
+import { FilmCard } from '../film-card/film-card';
+
 
 @Component({
   selector: 'app-film-list',
-  imports: [],
+  imports: [FilmCard],
   templateUrl: './film-list.html',
   styleUrl: './film-list.css',
 })
