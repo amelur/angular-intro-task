@@ -1,6 +1,7 @@
-import { Routes } from '@angular/router';
-import { FilmList } from './features/film-list/film-list'
-import { FilmDetails } from './features/film-details/film-details';
+import {Routes} from '@angular/router';
+import {FilmList} from './features/film-list/film-list'
+import {FilmDetails} from './features/film-details/film-details';
+import {About} from "./features/about/about";
 
 
 export const routes: Routes = [
@@ -12,5 +13,6 @@ export const routes: Routes = [
     path: 'film/:id',
     component: FilmDetails
   },
-  { path: '**', redirectTo: '' }
+  {path: 'about', component: About},
+  {path: '**', redirectTo: ''}
 ];
