@@ -1,10 +1,37 @@
-@if (film) {
-    <h2>{{ film.title }}</h2>
-    <p>{{ film.year }}</p>
-    <p>{{ film.genre }}</p>
-    <p>{{ film.rating }}</p>
-    <p>{{ film.duration | duration }}</p>
-    <p>{{ film.description }}</p>
+@if (film(); as f) {
+    <div class="container">
+        <img
+                class="poster"
+                [ngSrc]="f.posterUrl"
+                width="300"
+                height="450"
+                alt="{{ f.title }}"
+                priority
+        />
 
-    <button routerLink="/">Back</button>
+        <div class="info">
+            <h2>{{ f.title }}</h2>
+
+            <p><strong>Year:</strong> {{ f.year }}</p>
+            <p><strong>Genre:</strong> {{ f.genre }}</p>
+            <p><strong>Rating:</strong> {{ f.rating }}</p>
+            <p><strong>Duration:</strong> {{ f.duration | duration }}</p>
+
+            <p>{{ f.description }}</p>
+
+            <button
+                    (click)="filmService.toggleFavorite(f.id)"
+                    [class.active]="f.isFavorite"
+            >
+                @if (f.isFavorite) {
+                    ❤️ In favorites
+                } @else {
+                    🤍 Add to favorites
+                }
+            </button>
+        </div>
+        <div class="back-wrapper">
+            <button class="back-btn" routerLink="/">← Back</button>
+        </div>
+    </div>
 }

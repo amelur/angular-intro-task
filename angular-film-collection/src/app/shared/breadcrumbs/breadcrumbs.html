@@ -1,9 +1,11 @@
 <nav>
-    @for (crumb of breadcrumbs; track crumb; let i = $index) {
-        @if (i === 0) {
-            <a routerLink="/">{{ crumb }}</a>
-        } @else {
-            <span> > {{ crumb }}</span>
+    <div class="container">
+        @for (crumb of breadcrumbs; track crumb; let i = $index) {
+            @if (i === 0) {
+                <a routerLink="/">{{ crumb }}</a>
+            } @else {
+                <span> > {{ crumb }}</span>
+            }
         }
-    }
+    </div>
 </nav>

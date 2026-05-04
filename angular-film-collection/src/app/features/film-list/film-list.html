@@ -1,18 +1,21 @@
-<h2>Films</h2>
+<div class="search-bar">
+    <input
+            type="text"
+            placeholder="Search films..."
+            appAutofocus
+            (input)="filmService.search.set($any($event.target).value)"
+    />
+</div>
 
-<input
-        type="text"
-        placeholder="Search films..."
-        (input)="filmService.search.set($any($event.target).value)"
-        appAutofocus
-/>
+<div class="grid">
+    @for (film of filmService.filteredFilms(); track film.id) {
+        <app-film-card
+                [film]="film"
+                (toggle)="filmService.toggleFavorite($event)"
+        ></app-film-card>
+    }
+</div>
+
 @if (filmService.filteredFilms().length === 0) {
-    <p>Nothing found</p>
-}
-
-@for (film of filmService.filteredFilms(); track film.id) {
-    <app-film-card
-            [film]="film"
-            (toggle)="filmService.toggleFavorite($event)"
-    ></app-film-card>
+    <p class="empty">Nothing found</p>
 }
