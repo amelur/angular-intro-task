@@ -1,0 +1,29 @@
+<div class="card">
+    <div class="content" [routerLink]="['/film', film().id]">
+
+        <img
+                class="poster"
+                [ngSrc]="film().posterUrl"
+                width="260"
+                height="390"
+                alt="{{ film().title }}"
+        />
+
+        <h3>{{ film().title }}</h3>
+
+        <p><strong>Year:</strong> {{ film().year }}</p>
+        <p><strong>Genre:</strong> {{ film().genre }}</p>
+        <p><strong>Rating:</strong> ⭐ {{ film().rating }}</p>
+    </div>
+
+    <button
+            (click)="toggle.emit(film().id)"
+            [class.active]="film().isFavorite"
+    >
+        @if (film().isFavorite) {
+            ❤️ In favorites
+        } @else {
+            🤍 Add to favorites
+        }
+    </button>
+</div>
